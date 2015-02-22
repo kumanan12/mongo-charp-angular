@@ -1,0 +1,45 @@
+﻿<div ng-controller="IndexCtrl as vm">
+   
+
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" ng-model="vm.Name" id="Name" placeholder="Enter Name">
+            </div>
+
+            <button class="btn btn-default" ng-click="vm.addCustomer()">Submit</button>
+
+            {{vm.Name}}
+        </div>
+        <div class="col-md-4">
+            <h2>Edit Customer - Customer Id: {{vm.selectedCustomer.Id}}</h2>
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" ng-model="vm.selectedCustomer.Name" id="Name" placeholder="Enter Name">
+            </div>
+
+            <button class="btn btn-default" ng-click="vm.updateCustomer()">Submit</button>
+        </div>
+        <div class="col-md-4">
+            <h3>Customer List</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr ng-repeat="customer in vm.customers">
+                    <td>{{customer.Id}}</td>
+                    <td>{{customer.Name}}</td>
+                    <td><button ng-click="vm.editCustomer(customer)">Edit</button></td>
+                    <td><button ng-click="vm.deleteCustomer(customer)">Delete</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+   
+
+</div>
